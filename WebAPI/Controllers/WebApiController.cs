@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MailBoxManagement.Outlook;
-using MailBoxManagement.DTOs;
 using Microsoft.Extensions.Configuration;
-using System.Linq;
-using System;
-using System.Text;
-using Newtonsoft.Json;
+using MailBoxManagement.DTOs;
+using MailBoxManagement.Interface;
+using MailBoxManagement.Service;
+using MailBoxManagement.Outlook;
 
 namespace WebAPI.Controllers
 {
@@ -18,6 +16,7 @@ namespace WebAPI.Controllers
         private IConfiguration _configuration;
         private string _emailAddress;
         private string _password;
+        private IMailBoxManagement _mailService;
 
         public WebApiController(ILogger<WebApiController> logger, IConfiguration configuration)
         {
@@ -25,27 +24,25 @@ namespace WebAPI.Controllers
             _configuration = configuration;
             _emailAddress = _configuration["Out_Look:EmailAddress"];
             _password = _configuration["Out_Look:Password"];
+            _mailService = new MailBoxManagementService(_emailAddress, _password).ChooseProvider("Outlook");
         }
 
         [HttpGet]
         public dynamic FetchAllUnReadMailBoxMessages()
         {
-            var mailBox = new OutlookManagement(_emailAddress, _password);
-            return mailBox.FetchAllUnReadMailBoxMessages(100);
+            return _mailService.FetchAllUnReadMailBoxMessages(100);
         }
 
         [HttpGet]
         public dynamic FetchAllMailBoxMessages()
         {
-            var mailBox = new OutlookManagement(_emailAddress, _password);
-            return mailBox.FetchAllMailBoxMessages();
+            return _mailService.FetchAllMailBoxMessages();
         }
 
         [HttpGet]
         public dynamic SearchMailBoxMessages(MailBoxSearchDTO searchDTO)
         {
-            var mailBox = new OutlookManagement(_emailAddress, _password);
-            return mailBox.SearchMailBoxMessages(searchDTO);
+            return _mailService.SearchMailBoxMessages(searchDTO);
         }
     }
 }

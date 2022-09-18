@@ -1,9 +1,8 @@
 ﻿using MailBoxManagement.DTOs;
-using MailManagement.Interface;
+using MailBoxManagement.Interface;
 using Microsoft.Exchange.WebServices.Data;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace MailBoxManagement.Outlook
 {
