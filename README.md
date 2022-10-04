@@ -11,3 +11,6 @@ It contains two major projects -
 - It will automatically load a browser window and **_Fetch All MailBox Messages_**
 - To explore other GET API methods change the URI in the browser with the method names from the **Controller**
 - You can find other API methods in Controller folder of the **WebAPI Project**
+
+# License
+[MIT License](License.md)
