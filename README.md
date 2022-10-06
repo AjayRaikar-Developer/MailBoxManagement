@@ -15,4 +15,4 @@ It contains two major projects -
 # License
 [MIT License](License.md)
 
-Hit that Star button to show some ❤️
+> Hit that Star button to show some ❤️
