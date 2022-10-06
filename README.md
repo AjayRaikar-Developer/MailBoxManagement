@@ -1,4 +1,4 @@
-# MailBoxManagement
+# Mail Box Management
 This project helps to fetch the mailbox data from any given provider like outlook.
 
 It contains two major projects -
