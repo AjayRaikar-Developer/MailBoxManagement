@@ -16,3 +16,7 @@ It contains two major projects -
 [MIT License](License.md)
 
 > ***Hit that Star button to show some ❤️***
+
+> **Also you can support me here**
+
+<a href="https://www.buymeacoffee.com/ajayraikar123"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" /></a>
